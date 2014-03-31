@@ -1,0 +1,15 @@
+"AddonInfo"
+{
+	"name" "MunMod 2"
+	"author_name" "Author Name"
+	"info" "
+{
+	"description": "Description",
+	"type": "tool",
+	"tags": 
+	[
+		"build",
+		"fun"
+	]
+}"
+}

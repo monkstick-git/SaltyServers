@@ -1,0 +1,17 @@
+{
+        "title"                :        "MunMod2",
+        "type"                :        "tool",
+        "tags"                :        [ "build", "fun" ],
+        "ignore"        :
+        [
+                "*.bat",
+                ".git*",
+                ".gitignore",
+                "*.md",
+                "license",
+                "*.txt",
+                "*.gma",
+                "munmod512.jpg", 
+                "trash/*"
+        ]
+}
