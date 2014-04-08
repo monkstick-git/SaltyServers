@@ -2,3 +2,6 @@ I would like you to go through these loading screens and remove any unwanted tex
 Try to get all 16:9 images to 1280 x 720 and if they are 4:3 for example, chop the top and bottom off to force 16:9
 
 I don't expect them all to be done within a day or so, but ASAP would be great, thanks!
+
+edit:  I also want them all to have maximum lossless jpeg compression, and idealy be under 300kb each.
+Anymore than 300kb each and I would like you to use lossy compression then.
