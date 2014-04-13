@@ -15,6 +15,7 @@ local function getAllE2s()
 				ops = math.Round(v.context.prfbench or 0),
 				name = v.name,
 				ent = v,
+				cputime = ((100 * v.context.timebench) or 0)
 			})
 
 		end

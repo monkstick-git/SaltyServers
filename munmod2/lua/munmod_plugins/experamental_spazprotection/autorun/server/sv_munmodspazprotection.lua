@@ -34,19 +34,24 @@ function MunModTable.Touch()
 		if(IsValid(entitytable1[B]) and entitytable1[B]:GetCollisionGroup() != 10) then 
 			local Energy = math.floor((entitytable1[B]:GetPhysicsObject():GetEnergy()/entitytable1[B]:GetPhysicsObject():GetMass()) / 10000)
 			if(Energy > 1000) then 
+			--	entitytable1[B].SpazFlags = entitytable1[B].SpazFlags and ( entitytable1[B].SpazFlags + 1 ) or 1
 				 entitytable1[B]:CPPIGetOwner().SpazFlags = entitytable1[B]:CPPIGetOwner().SpazFlags and (entitytable1[B]:CPPIGetOwner().SpazFlags + 1) or 1
 				local Flags = entitytable1[B]:CPPIGetOwner().SpazFlags or 0
 				local entvel = entitytable1[B]:GetPhysicsObject():GetVelocity()
 				local entstress = entitytable1[B]:GetPhysicsObject():GetInertia()
 					for k,v in pairs(constraint.GetAllConstrainedEntities(entitytable1[B])) do
-						if(Flags >= 25) then
-						Nick1 = v:CPPIGetOwner():Nick()
+						if(Flags >= 3) then
 						v:GetPhysicsObject():EnableMotion(false)
 						MunModTable.addChat(nil,"Freezing "..tostring(Nick1).."'s contraption, suspected Spazzing.")
 						else
 						v:GetPhysicsObject():Sleep()
 						end
+						--v:GetPhysicsObject():EnableMotion(false)
+						--v:GetPhysicsObject():Sleep()
+						Nick1 = v:CPPIGetOwner():Nick()
 				end
+				
+			--	MunModTable.addChat(nil,"[DEBUG MODE] - A: " .. tostring(Energy) .. " B: " .. entitytable1[B]:GetModel() .. " C: " .. tostring(entstress))
 			end
 		end
 
@@ -57,5 +62,6 @@ timer.Create("MunModGetEnts",TimerTime,0,MunModTempFunction)
 timer.Create("MunModSetSpazFlags",120,0,function()
 	for k,v in pairs(player.GetAll()) do
 		v.SpazFlags = math.Clamp(v.SpazFlags and (v.SpazFlags - 1) or 0,0,100)
+		--MunModTable.addChat(nil,v:Nick() .. "'s flags are now " .. v.SpazFlags)
 	end
 end)

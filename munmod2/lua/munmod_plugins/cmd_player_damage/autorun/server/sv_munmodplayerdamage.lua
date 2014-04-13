@@ -1,7 +1,7 @@
 if(!file.Exists("munmodacfoff.txt","DATA")) then  
 	function MunModTable.PlayerDamage(target,damageinfo)
 		if !MunModTable.PlayerPersonalDamage  then --or !target.MunModTable.PlayerPersonalDamage
-			if (target:GetClass():lower() == "player") and (damageinfo:GetAttacker():GetClass():lower() == "player") and (damageinfo:GetAttacker() != target) and (damageinfo:GetAttacker():Alive()) then
+			if (target:GetClass():lower() == "player") and (damageinfo:GetAttacker():GetClass():lower() == "player") and (damageinfo:GetAttacker() != target) and (target:Alive()) then
 				damageinfo:GetAttacker():SetMoveType(MOVETYPE_WALK)
 				damageinfo:GetAttacker():SetVelocity(Vector(0,0,8096))
 				damageinfo:GetAttacker():Ignite(15)

@@ -48,6 +48,7 @@ function PANEL:Init()
 	self.listE2:AddColumn("Owner")
 	self.listE2:AddColumn("Name")
 	self.listE2:AddColumn("OPs")
+	self.listE2:AddColumn("CpuTime")
 
 	self.lastQuery = 0
 
@@ -91,12 +92,12 @@ end
 function PANEL:setE2List(e2)
 
 	local totalOps = 0
-	table.SortByMember(e2, "ops")
+	table.SortByMember(e2, "cputime")
 	for k,v in pairs(e2) do
 		
 		totalOps = totalOps + v.ops
 		local e2Id = v.ent:EntIndex()
-		local line = self.listE2:AddLine(v.owner, v.name, v.ops)
+		local line = self.listE2:AddLine(v.owner, v.name, v.ops, v.cputime)
 
 		function line:OnMousePressed(mouse)
 			
