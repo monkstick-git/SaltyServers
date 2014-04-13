@@ -26,6 +26,12 @@ function PANEL:Init()
 	self.totalOps:SetColor(Color(255,255,255,255))
 	self.totalOps:SizeToContents()
 	
+	self.totalCpuLable = vgui.Create("DLabel", self)
+	self.totalCpuLable:SetText("Total Load :")
+	self.totalCpuLable:SetFont("MunMod_GUI_DescriptionSmall")
+	self.totalCpuLable:SetColor(Color(255,255,255,255))
+	self.totalCpuLable:SizeToContents()
+	
 	self.expression2Count = vgui.Create("DLabel", self)
 	self.expression2Count:SetText("Expression2 count :")
 	self.expression2Count:SetFont("MunMod_GUI_DescriptionSmall")
@@ -37,6 +43,12 @@ function PANEL:Init()
 	self.totalOpsValue:SetFont("MunMod_GUI_DescriptionSmall")
 	self.totalOpsValue:SetColor(Color(255,255,255,255))
 	self.totalOpsValue:SizeToContents()
+	
+	self.totalCpuTime = vgui.Create("DLabel", self)
+	self.totalCpuTime:SetText("0 ms")
+	self.totalCpuTime:SetFont("MunMod_GUI_DescriptionSmall")
+	self.totalCpuTime:SetColor(Color(255,255,255,255))
+	self.totalCpuTime:SizeToContents()
 	
 	self.expression2CountValue = vgui.Create("DLabel", self)
 	self.expression2CountValue:SetText("0 chip")
@@ -57,13 +69,17 @@ end
 function PANEL:PerformLayout()
 
 	self.totalOpsValue:SizeToContents()
+	self.totalCpuTime:SizeToContents()
+	
 	self.expression2CountValue:SizeToContents()
 
 	self.labelInformation:SetPos(self:GetWide()/2-self.labelInformation:GetWide()/2, self:GetTall()*0.01)
 	self.totalOps:SetPos(self:GetWide()/2-self.totalOps:GetWide()-5, self:GetTall()*0.05)
-	self.expression2Count:SetPos(self:GetWide()/2-self.expression2Count:GetWide()-5, self.totalOps:GetTall()+self:GetTall()*0.05)
+	self.totalCpuLable:SetPos(self:GetWide()/2-self.totalOps:GetWide()-5, self.totalOps:GetTall()+self:GetTall()*0.05)
+	self.expression2Count:SetPos(self:GetWide()/2-self.expression2Count:GetWide()-5, self.totalCpuLable:GetTall()+self.totalOps:GetTall()+self:GetTall()*0.05)
 	self.totalOpsValue:SetPos(self:GetWide()/2+5, self:GetTall()*0.05)
-	self.expression2CountValue:SetPos(self:GetWide()/2+5, self.totalOps:GetTall()+self:GetTall()*0.05)
+	self.totalCpuTime:SetPos(self:GetWide()/2+5, self.totalOps:GetTall()+self:GetTall()*0.05)
+	self.expression2CountValue:SetPos(self:GetWide()/2+5, self.totalCpuTime:GetTall() + self.totalOps:GetTall()+self:GetTall()*0.05)
 
 	local startY = self.expression2Count:GetTall()+self.totalOps:GetTall()+self:GetTall()*0.1
 	self.listE2:SetPos(0, startY)
@@ -92,10 +108,12 @@ end
 function PANEL:setE2List(e2)
 
 	local totalOps = 0
+	local totalCpuTime = 0
 	table.SortByMember(e2, "cputime")
 	for k,v in pairs(e2) do
 		
 		totalOps = totalOps + v.ops
+		totalCpuTime = totalCpuTime + v.cputime
 		local e2Id = v.ent:EntIndex()
 		local line = self.listE2:AddLine(v.owner, v.name, v.ops, v.cputime)
 
@@ -116,6 +134,7 @@ function PANEL:setE2List(e2)
 	end
 
 	self.totalOpsValue:SetText(totalOps .. " ops")
+	self.totalCpuTime:SetText(totalCpuTime .. " ms")
 	
 	local count = table.Count(e2)
 	self.expression2CountValue:SetText(count .. " chip" .. (count>1 and "s" or ""))	

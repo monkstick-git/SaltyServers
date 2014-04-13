@@ -42,7 +42,6 @@ function MunModTable.Touch()
 					for k,v in pairs(constraint.GetAllConstrainedEntities(entitytable1[B])) do
 						if(Flags >= 3) then
 						v:GetPhysicsObject():EnableMotion(false)
-						MunModTable.addChat(nil,"Freezing "..tostring(Nick1).."'s contraption, suspected Spazzing.")
 						else
 						v:GetPhysicsObject():Sleep()
 						end
@@ -50,8 +49,8 @@ function MunModTable.Touch()
 						--v:GetPhysicsObject():Sleep()
 						Nick1 = v:CPPIGetOwner():Nick()
 				end
-				
-			--	MunModTable.addChat(nil,"[DEBUG MODE] - A: " .. tostring(Energy) .. " B: " .. entitytable1[B]:GetModel() .. " C: " .. tostring(entstress))
+				MunModTable.addChat(nil,"[DEBUG MODE] - Freezing "..tostring(Nick1).."'s contraption, suspected Spazzing.")
+				MunModTable.addChat(nil,"[DEBUG MODE] - A: " .. tostring(Energy) .. " B: " .. entitytable1[B]:GetModel() .. " C: " .. tostring(entstress))
 			end
 		end
 
