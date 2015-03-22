@@ -1,1 +1,0 @@
-MunModTable = MunModTable or {}
