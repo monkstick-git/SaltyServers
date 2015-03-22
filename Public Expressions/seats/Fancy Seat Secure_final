@@ -1,0 +1,281 @@
+@name Fancy Seat Secure_final
+@inputs Pod:wirelink
+@persist O:entity Path:string [L Whitelist]:table
+
+#[## Chatcommands:
+.sscs mode <>
+.sscs action <>
+.sscs lock
+#lock triggers the state, so if already locked it will be unlocked!
+.sscs whitelist add <>
+
+EXAMPLES:
+.sscs mode owneronly
+.sscs mode freeforall
+.sscs mode secured
+.sscs action kill
+.sscs action eject
+.sscs lock
+.sscs unlock
+.sscs whitelist add gary
+.sscs whitelist remove gary
+.sscs whitelist players
+
+]###
+if ( first() | duped() ){
+    O = owner()
+    L = table("Name" = "[G.Tech] S.S.C.S.",
+        "Action" = "Eject",# = "Terminate"
+        "Mode" = "Secured",
+        "Version" = 2
+        )
+    L["ChatPrefix",array] = array(vec(255, 150, 0),L["Name",string],vec()+255,": ")
+    
+    Whitelist = table(
+        "STEAM_0:0:20302138" = 1,#Allowing Gary, the coder to enter your seats. He is nice and always asks :)
+        "STEAMID OF SOMEONE ELSE" = 1
+        )
+    Whitelist[O:steamID(),number] = 1#This sets the owner on the whitelist
+    L["Whitelist",table] = Whitelist
+    Path = (L["Name",string]:replace("[",""):replace("]",""):replace(" ","_"):replace(".","")+L["Version",number]+".txt")
+    runOnChat(1)
+    runOnTick(1)
+    runOnLast(1)
+    runOnFile(1)
+    
+    setName(L["Name",string]+"\nMode: "+L["Mode",string]+"\nSeat Security Control System\nVersion: "+L["Version",number]+"\nfinished at 10.Dez.2014")
+    
+    function msg(Ary:array){ printColor(L["ChatPrefix",array]:add(Ary)) }
+    function msg(Text:string){ msg(array(Text)) }
+    function msgError(Ary:array){ msg(Ary:add(array(vec(255,0,0)," [ERROR]"))) }
+    function msgError(Text:string){ msgError(array(Text)) }
+    function msgErrorNoPod(){ msgError("Please wire the SSCS-E2 to a Pod-Controller!") }
+    function msgErrorNoSeat(){ msgError("Please link the pod to a seat!") }
+    function nope(Plr:entity){
+        msg(array(vec(0,0,255),Plr:name(),vec()+255," tried to enter your Seat! ["+L["Action",string]+"ed]"))
+        Plr:printColorDriver(L["ChatPrefix",array]:add(array("NO! Baaaaaad!")))
+        
+        Pod[L["Action",string],number] = 1
+    }
+    function wrongCommand(){ msgError(array("Wrong command!",vec(255,0,0))) }
+    function backup(){ stoptimer("backup"), timer("backup",0) }
+    function backup(Num){ stoptimer("backup"), timer("backup",Num) }
+    function lock(){ soundStop(1), Pod["Entity",entity]:soundPlay(1,0,"buttons/lever4.wav") }
+    function unlock(){ soundStop(1), Pod["Entity",entity]:soundPlay(1,0,"buttons/lever8.wav") }
+    
+    timer("check for pod",0)
+    timer("load",200)
+}
+
+##-- Pod and Seat checking --##
+if ( !Pod["Entity",entity]:isValid() ){
+    if ( !->Pod & clk("check for pod") ){ msgErrorNoPod() }
+    if ( ->Pod & clk("check for seat") ){ msgErrorNoSeat() }
+    if ( changed(->Pod) & ->Pod ){ timer("check for seat",50) }
+}
+#-Not working properly lol-#
+#[
+elseif ( changed(Pod["Entity",entity]:isValid()) & !Pod["Entity",entity]:isValid() ){
+    msgErrorNoSeat()
+}
+if ( changed(->Pod) & !->Pod ){
+    msgErrorNoPod()
+}]#
+
+
+if ( L["loaded",number] & changed(Pod["Entity",entity]) & Pod["Entity",entity] | changed(L["loaded",number]) & L["loaded",number] & Pod["Entity",entity] ){
+    printColor(L["ChatPrefix",array]:add(array("Security wired and ready for use! For Example: \".sscs mode owneronly\" look in the E2 on top are all available commands.")))
+    if ( L["Locked",number] ){
+        lock()
+    }else{
+        unlock()
+    }
+    L["loaded",number] = 0
+}
+
+if ( Pod["Entity",entity] ){
+    if ( L["Mode",string] == "Secured" ){
+        D = Pod["Entity",entity]:driver()
+        if ( D & Whitelist[D:steamID(),number] == 0 ){
+            nope(D)
+        }
+    }elseif ( L["Mode",string] == "OwnerOnly" ){
+        D = Pod["Entity",entity]:driver()
+        if ( D & D != O ){
+            nope(D)
+        }
+    }
+    Pod["Lock",number] = L["Locked",number]
+}
+
+if ( chatClk(O) & lastSaid():sub(1,5) == ".sscs" ){
+    if ( lastSaid():left(6) != ".sscs " ){
+        wrongCommand()
+    }else{
+        LS = lastSaid():sub(7)
+#        print("Debug:"+LS)
+        hideChat(1)
+        LSx = LS:explode(" ")
+        if ( LSx[1,string]:lower() == "action" ){
+            if ( LSx[2,string]:lower() == "eject" ){
+                if ( L["Action",string] == "Eject" ){
+                    msgError(array("Action mode is already set as EJECT"))
+                }else{
+                    L["Action",string] = "Eject"
+                    msg(array("Action mode changed to: ",vec(0,255,0),"EJECT"))
+                    backup(500)
+                }
+            }elseif ( LSx[2,string]:lower() == "terminate" | LSx[2,string]:lower() == "kill" ){
+                if ( L["Action",string] == "Terminate" ){
+                    msgError(array("Action mode is already set as TERMINATE"))
+                }else{
+                    L["Action",string] = "Terminate"
+                    msg(array("Action mode changed to: ",vec(0,255,0),"TERMINATE"))
+                    backup(500)
+                }
+            }else{
+                wrongCommand()
+            }
+        }elseif ( LSx[1,string]:lower() == "mode" ){
+            A1 = array("owneronly","oo","owner","o")
+            A2 = array("freeforall","f4a","ffa")
+            A3 = array("secured","s","fuck")
+            if ( LSx[2,string]:lower() == A1[1,string] | LSx[2,string]:lower() == A1[2,string] | LSx[2,string]:lower() == A1[3,string] | LSx[2,string]:lower() == A1[4,string]){
+                if ( L["Mode",string] == "OwnerOnly" ){
+                    msgError(array("Operating mode is already set as OwnerOnly"))
+                }else{
+                    L["Mode",string] = "OwnerOnly"
+                    msg(array("Operating mode changed to: ",vec(0,255,0),"OWNERONLY"))
+                    backup(500)
+                }
+            }elseif ( LSx[2,string]:lower() == A2[1,string] | LSx[2,string]:lower() == A2[2,string] | LSx[2,string]:lower() == A2[3,string] ){
+                if ( L["Mode",string] == "FreeForAll" ){
+                    msgError(array("Operating mode is already set as FreeForAll"))
+                }else{
+                    L["Mode",string] = "FreeForAll"
+                    msg(array("Operating mode changed to: ",vec(0,255,0),"FREEFORALL"))
+                    backup(500)
+                }
+            }elseif ( LSx[2,string]:lower() == A3[1,string] | LSx[2,string]:lower() == A3[2,string] | LSx[2,string]:lower() == A3[3,string] ){
+                if ( L["Mode",string] == "Secured" ){
+                    msgError(array("Operating mode is already set as Secured"))
+                }else{
+                    L["Mode",string] = "Secured"
+                    msg(array("Operating mode changed to: ",vec(0,255,0),"SECURED"))
+                    backup(500)
+                }
+            }else{
+                wrongCommand()
+            }
+        }elseif ( LSx[1,string]:lower() == "lock" ){
+            if ( L["Locked",number] ){
+                L["Locked",number] = 0
+                msg(array("Seat ",vec(0,255,0),"UNLOCKED!"))
+                unlock()
+                backup(500)
+            }else{
+                L["Locked",number] = 1
+                msg(array("Seat ",vec(0,255,0),"LOCKED!"))
+                lock()
+                backup(500)
+            }
+        }elseif ( LSx[1,string]:lower() == "unlock" ){
+            if (  L["Locked",number] == 0 ){
+                msgError(array("Seat is already unlocked!"))
+            }else{
+                L["Locked",number] = 0
+                msg(array("Seat ",vec(0,255,0),"UNLOCKED!"))
+                unlock()
+                backup(500)
+            }
+        }elseif ( LSx[1,string]:lower() == "whitelist" | LSx[1,string]:lower() == "white" ){
+            Ply = findPlayerByName(LSx[3,string]:lower())
+            A1 = array("list","showlist","l","players")
+            if ( !Ply ){
+                msgError(array("No player found!"))
+            }elseif ( LSx[2,string]:lower() == "add" ){
+                if ( Whitelist[Ply:steamID(),number] ){
+                    msgError(array(vec(0,255,0),Ply:name(),vec()+255," is already on the list!"))
+                }else{
+                    Whitelist[Ply:steamID(),number] = 1
+                    msg(array(vec(0,255,0),Ply:name(),vec()+255," was set on the Whitelist!"))
+                    backup(500)
+                }
+            }elseif ( LSx[2,string]:lower() == "remove" ){
+                if ( Whitelist[Ply:steamID(),number] == 0 ){
+                    msgError(array(vec(0,255,0),Ply:name(),vec()+255," is not on the list!"))
+                }else{
+                    Whitelist[Ply:steamID(),number] = 0
+                    msg(array(vec(0,255,0),Ply:name(),vec()+255," was removed from the Whitelist!"))
+                    backup(500)
+                }
+            }elseif (LSx[2,string]:lower() == "" | LSx[2,string]:lower() == A1[1,string] | LSx[2,string]:lower() == A1[2,string] | LSx[2,string]:lower() == A1[3,string] | LSx[2,string]:lower() == A1[4,string] ){
+                Plrs = array()
+                foreach(K,Plr:entity = players()){
+                    if ( Whitelist[Plr:steamID(),number] ){
+                        Plrs:pushString(Plr:name())
+                    }
+                }
+                msg(array("Whitelisted: ("+Plrs:count()+"/"+Whitelist:count()+"):\n ",vec(255,0,0),Plrs:concat("\n ")))
+            }else{
+                wrongCommand()
+            }
+        }else{
+            wrongCommand()
+        }
+    }
+}
+
+
+##-- Saving and loading --##
+
+if ( clk("load") ){
+    if ( fileCanLoad() ){fileLoad(Path)
+        msg("Loading file :\""+Path+"\"")
+    }else{
+        msgError("File couldnt be loaded! Retrying...")
+        timer("load",500)
+    }
+}
+
+if ( fileClk(Path) ){
+    if ( fileLoaded() ){
+        Length = vonEncode(L):length()
+        Data = fileRead()
+        if ( Data:length() >= Length ){
+            L = vonDecodeTable(Data)
+            Whitelist = L["Whitelist",table]
+            msg("Data loaded!")
+            L["loaded",number] = 1
+        }else{
+            msgError("No data loaded!")
+            msg("Saving standard settings...")
+            backup()
+        }
+    }else{
+        msgError("No data loaded!")
+        msg("Saving standard settings!")
+        backup()
+    }
+}
+
+if ( clk("backup") ){
+    if ( fileCanWrite() ){
+        Data = vonEncode(L)
+        fileWrite(Path,Data)
+        
+        msg("Data backupped!")
+        setName(L["Name",string]+"\nMode: "+L["Mode",string]+"\nSeat Security Control System\nVersion: "+L["Version",number]+"\nfinished at 10.Dez.2014")
+    }else{
+        msgError("Couldn't write file! Retrying...")
+        backup(500)
+    }
+}elseif( last() ){
+    if ( fileCanWrite() ){
+        Data = vonEncode(L)
+        fileWrite(Path,Data)
+        
+        msg("Data backupped!")
+    }
+    msg("Goodbye. :)\n")
+}

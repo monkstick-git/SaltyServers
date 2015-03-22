@@ -1,0 +1,39 @@
+@name [Salty Servers] - Bone removal
+@inputs 
+@outputs 
+@persist I
+@trigger 
+if(first() | duped()){I=0
+setName("[Salty Servers] - Bone removal")}
+holoCreate(1)
+holoModel(1,"models/tdmcars/69camaro.mdl")
+
+function void getWheels()
+{
+    interval(1500)
+    if(clk())
+    {
+        I++
+        print("Removing bone: " + I)
+        holoBoneScale(1,I,vec(0,0,0))
+    }
+}
+
+
+function void removeWheels()
+{
+    holoBoneScale(1,3,vec(0,0,0))
+    holoBoneScale(1,5,vec(0,0,0))
+    holoBoneScale(1,8,vec(0,0,0))
+    holoBoneScale(1,10,vec(0,0,0))
+}
+
+# Uncomment GetWheels if you need to figure out the new bone numbers of a new holo
+# Let it cycle through the bones one by one.
+# After you notice a wheel (Or anything else you want to remove) dissapear
+# Take note what the last number printed.
+# On line 25, Add a new line like this;
+# holoBoneScale(1,INT,vec(0,0,0)) where INT is the bones number to remove
+
+#getWheels()
+removeWheels()

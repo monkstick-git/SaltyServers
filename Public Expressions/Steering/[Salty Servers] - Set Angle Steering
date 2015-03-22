@@ -1,0 +1,23 @@
+@name SETANG STEERING SLAVE3
+@inputs Chassis:entity A D
+@outputs 
+@persist Slave:entity [TURN_RATE TURN_ANGLE TURN]  
+@trigger none
+@model models/sprops/rectangles/size_2_5/rect_18x18x3.mdl
+interval(30)
+
+if(first()| dupefinished())
+{  
+    TURN_RATE = 1
+    TURN_ANGLE = 4    
+    Slave = entity()
+}
+
+if(!Slave:isPlayerHolding())
+{
+    TURN_ANGLE = 25
+    TURN_RATE = 6
+    TURN += clamp( (A-D)*TURN_ANGLE - TURN, -TURN_RATE, TURN_RATE )
+    Slave:setAng( Chassis:toWorld(ang(0, TURN, 0)) )
+    Slave:propFreeze(1)
+}

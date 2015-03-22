@@ -1,0 +1,19 @@
+@name Apply AngForce
+@inputs A D
+@outputs 
+@persist
+@trigger 
+@model models/hunter/plates/plate1x1.mdl
+runOnTick(1)
+
+if(tickClk())
+{
+  TurnAngle = 30
+  if(A){A2=1}else{A2=0}
+  if(D){D2=1}else{D2=0}
+  E = entity()
+  Base = E:isConstrainedTo("axis")
+  Local = ang(0, TurnAngle*(A2-D2) - 90, 0) - Base:toLocal(E:angles())        
+  DesAF = (Local*300 - E:angVel()*45) * shiftL(ang(E:inertia()))        
+  E:applyAngForce( DesAF * ang(0,1,0))
+}
