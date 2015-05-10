@@ -1,0 +1,141 @@
+1. This is a combat server, Not a build server. Anybody outside the safezone can and is allowed to kill you. No exceptions
+
+2. Only ACF propulsion, it is unfair when tanks or cars move faster than they should/could with ACF due to E2. 
+Exceptions with planes, boats and hovercraft. These must all be kept realistic speeds
+
+3. No invisible guns. You may have invisible ammo crates as longas they are inside armour. 
+Any exposed ammo must be visible. No exceptions
+
+4. No entity:weight(#) or entity:remove(). We don't need tanks when ammo box is about to explode being removed by E2.
+ Same goes with improving your armor before hit/after start of combat. No exceptions
+
+5. No stacking things inside each other. This goes with everything: Engine inside ammo, ammo inside ammo, pod inside ammo,
+ gun inside ammo, etc. Minor clipping is allowed with ammo crates.
+ You are allowed to have engines merge a tiny bit but not more than 5% inside eachother
+
+6. No sticking your gun inside enemy tanks and shooting. 
+This is extremely unfair when somebody with 60 tons of armour gets destroyed by a 14mm Mg. 
+
+7. Radars are not allowed.They remove any ability of flanking, ambushing and etc.
+8. All ammo and fuel must be welded. No setPos or applyforce to make it float.
+9. No unmanned Turrets. 
+10.No automatic aiming.
+11.No Spawncamping
+13.No spawning random bombs in the sky. Your kills must be gained via a vehicle or handheld weapon
+
+
+_____________________________________________________________________________ 
+
+
+Independant base RULES (Bases not attached to world buildings)
+
+1. Max weight of 1000 tons
+2.Main base walls can be 30k
+3. Doorways cannot exceed 20 tons
+4. 2 weapons per base
+5. Allowed weapons for bases are
+
+20mm Autocannon
+37+50mm Cannon
+Grenade launcher
+20+30mm HMG
+Any Machine Gun
+60mm Mortor
+
+6. minimum base volume base to be volume of 500 
+
+5x5x20 Meters
+31x4x5 Meters
+
+etc
+
+
+http://www.calculator.net/volume-calculator.html
+Rectangular tank volume calculator.
+
+Turrets cannot exceed 15 tons overall
+
+Any Base less than the required volume is allowed 40 tons of armour and is considered a "turret" -see turret rules below
+
+_____________________________________________________________________________ 
+
+World Bases Rules
+
+1. Max weight for each doorway/window is 20 tons each
+2. Weapons cannot poke through walls. Must be pointed out of an open window/hole
+3. Turrets cannt exceed 10 tons
+4. 2 weapons allowed per base.
+5. Allowed weapons for World bases are
+
+20m Autocannon
+Grenade Launcher
+20mm HMG
+Any Machine Gun
+60mm Mortor
+
+
+
+
+_____________________________________________________________________________ 
+
+
+Plane Rules
+
+1.If useing an e2. Your plane must be fair speeds and agility. No 90 degree turns mid flight.
+2.Max weight is 15 tons. 10% deviation allowed.
+3.If your plane is not carrying projectile weapons and ONLY bombs from XCF. Then you may add an extra 7 tons of armour.
+4.If your Plane 10x10 Meters it is considered a "Mammoth Plane" and may weigh up to 30 tons.
+5.Eyeangles turrets or and equivilant cannot be controled by pilot. Only non pilot crew. 
+6. Pilot can only fire fixed weapons and bombs.
+
+
+_____________________________________________________________________________ 
+
+
+Vtol Rules
+
+1. Your Vtol must be reasonable. no setPos, just applyforce etc.
+2. Max weight for a Vtol is 25 tons as it is slower and easier to hit than a plane.
+3. No RAC 30mm
+
+_____________________________________________________________________________ 
+
+Tank Rules
+
+1. Max Tank weight is 65y Tons
+2. Must be ACF powered
+
+_____________________________________________________________________________ 
+
+Mech Rules
+
+1. Max weight 65 Tons
+2. No setPos Weapon holders
+
+_____________________________________________________________________________ 
+
+Mammoth Plane rules
+
+1. Max weight 30 tons
+2. 10x10 meters
+
+3. Turrets cannot use weapons over 2 tons each. eg 2 57mm Semi AutoCannons are allowed 
+but not a 30mm RAC since its induvidual weight is over 2 tons
+
+4.Eyeangles turrets or and equivilant cannot be controled by pilot. Only non pilot crew. 
+5. Pilot can only fire fixed weapons and bombs.
+
+_____________________________________________________________________________ 
+
+Mammoth Tank Rules
+
+1.Max weight of 95 tons.
+2. 10x7 meters
+
+_____________________________________________________________________________ 
+
+Turret Rules
+
+1. Max weight 60 tons
+
+_____________________________________________________________________________ 
