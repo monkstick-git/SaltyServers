@@ -1,7 +1,8 @@
 1. This is a combat server, Not a build server. Anybody outside the safezone can and is allowed to kill you. No exceptions
 
-2. Only ACF propulsion, it is unfair when tanks or cars move faster than they should/could with ACF due to E2. 
-Exceptions with planes, boats and hovercraft. These must all be kept realistic speeds
+2. All vehicle and tank propulsion must be powered with spinning wheels and not thrusters,
+E2 applyforce or any other form of external power.
+*Exceptions with planes, boats and hovercraft,  but these must all be kept realistic speeds.
 
 3. No invisible guns. You may have invisible ammo crates as longas they are inside armour. 
 Any exposed ammo must be visible. No exceptions
