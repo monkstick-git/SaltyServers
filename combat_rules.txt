@@ -19,10 +19,13 @@ This is extremely unfair when somebody with 60 tons of armour gets destroyed by 
 
 7. Radars are not allowed.They remove any ability of flanking, ambushing and etc.
 8. All ammo and fuel must be welded. No setPos or applyforce to make it float.
-9. No unmanned Turrets. 
-10.No automatic aiming.
-11.No Spawncamping
-13.No spawning random bombs in the sky. Your kills must be gained via a vehicle or handheld weapon
+9.  No unmanned Turrets. 
+10. No automatic aiming.
+11. No Spawncamping
+13. No spawning random bombs in the sky. Your kills must be gained via a vehicle or handheld weapon
+14. Missiles/bombs may not target and follow players on their own. (That means not heat seeking/target finding missiles) 
+15. Bombs and missiles must behave realistically and have realistic mass compared to their explosion size.
+16. Refill boxes are prohibited outside of the safezone, However inside safezone they may be used to refill your ammo.
 
 
 _____________________________________________________________________________ 
