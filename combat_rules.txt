@@ -40,13 +40,10 @@ _____________________________________________________________________________
 INDEPENDENT BASE RULES
 _____________________________________________________________________________ 
 
-1. TOTAL weight may NOT exceed 1000 tonnes. NO exceptions.
+2. Main walls may NOT exceed a thickness of 2000mm.
 
 
-2. Main walls may NOT exceed 30 tonnes.
-
-
-3. Maximum weight for doorways is 20 tonnes.
+3. Maximum tickness for doorways is 1500mm.
 
 
 4. Bases may have a MAXIMUM of 3 weapons.
@@ -68,7 +65,7 @@ _____________________________________________________________________________
 WORLD BASE RULES
 _____________________________________________________________________________ 
 
-1. The MAXIMUM weight for ANY doorways is 20 tonnes.
+1. The MAXIMUM tickness for ANY doorways is 1500mm.
 
 
 2. Weapons CANNOT stick through walls.
@@ -139,7 +136,7 @@ _____________________________________________________________________________
 TANK RULES
 _____________________________________________________________________________ 
 
-1. ANY tank may NOT exceed 65 tonnes.
+1. ANY tank may NOT exceed an armor tickness of 300mm.
 
 
 2. MUST be acf powered. No external power source allowed as said before.
@@ -148,7 +145,7 @@ _____________________________________________________________________________
 MECH RULES
 _____________________________________________________________________________ 
 
-1. Maximum weight of 65 Tonnes.
+1. Maximum armor tickness is 300mm.
 
 
 2. NO setPos gimbals allowed.
@@ -168,7 +165,7 @@ _____________________________________________________________________________
 TURRET RULES
 _____________________________________________________________________________ 
 
-1. Maximum weight for turrets is 60 tonnes. NO exceptions.
+1. Maximum armor thickness is 500mm for turrets. NO exceptions.
 _____________________________________________________________________________ 
 
 MISSILE/BOMB RULES
