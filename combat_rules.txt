@@ -32,6 +32,9 @@ _____________________________________________________________________________
 
 10. Refill boxes are NOT allowed outside of the SAFEZONE.
 *The may ONLY be used to refill your ammo INSIDE the safezone.
+
+11. NO combat drones. Anything for combat must be manned.
+*Excluding spy and exploration drones.
 _____________________________________________________________________________ 
 
 INDEPENDENT BASE RULES
