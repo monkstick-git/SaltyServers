@@ -185,4 +185,8 @@ _____________________________________________________________________________
 
 4. Missiles/bombs MUST be constrained to the vehicle that is holding them.
 *That means no using setpos to hold them. Use latches instead.
+
+5. Any Missile may NOT weight more that 5 tonnes + 10% deviation
+
+6. Maximum weight for bombs is 15 tonnes.
 _____________________________________________________________________________ 
