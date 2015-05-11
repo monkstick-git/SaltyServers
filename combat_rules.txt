@@ -1,145 +1,185 @@
-1. This is a combat server, Not a build server. Anybody outside the safezone can and is allowed to kill you. No exceptions
-
-2. All vehicle and tank propulsion must be powered with spinning wheels and not thrusters,
-E2 applyforce or any other form of external power.
-*Exceptions with planes, boats and hovercraft,  but these must all be kept realistic speeds.
-
-3. No invisible guns. You may have invisible ammo crates as longas they are inside armour. 
-Any exposed ammo must be visible. No exceptions
-
-4. No entity:weight(#) or entity:remove(). We don't need tanks when ammo box is about to explode being removed by E2.
- Same goes with improving your armor before hit/after start of combat. No exceptions
-
-5. No stacking things inside each other. This goes with everything: Engine inside ammo, ammo inside ammo, pod inside ammo,
- gun inside ammo, etc. Minor clipping is allowed with ammo crates.
- You are allowed to have engines merge a tiny bit but not more than 5% inside eachother
-
-6. No sticking your gun inside enemy tanks and shooting. 
-This is extremely unfair when somebody with 60 tons of armour gets destroyed by a 14mm Mg. 
-
-7. Radars are not allowed.They remove any ability of flanking, ambushing and etc.
-8. All ammo and fuel must be welded. No setPos or applyforce to make it float.
-9.  No unmanned Turrets. 
-10. No automatic aiming.
-11. No Spawncamping
-13. No spawning random bombs in the sky. Your kills must be gained via a vehicle or handheld weapon
-14. Missiles/bombs may not target and follow players on their own. (That means not heat seeking/target finding missiles) 
-15. Bombs and missiles must behave realistically and have realistic mass compared to their explosion size.
-16. Refill boxes are prohibited outside of the safezone, However inside safezone they may be used to refill your ammo.
-
-
 _____________________________________________________________________________ 
 
-
-Independant base RULES (Bases not attached to world buildings)
-
-1. Max weight of 1000 tons
-2.Main base walls can be 30k
-3. Doorways cannot exceed 20 tons
-4. 2 weapons per base
-5. Allowed weapons for bases are
-
-20mm Autocannon
-37+50mm Cannon
-Grenade launcher
-20+30mm HMG
-Any Machine Gun
-60mm Mortor
-
-6. minimum base volume base to be volume of 500 
-
-5x5x20 Meters
-31x4x5 Meters
-
-etc
-
-
-http://www.calculator.net/volume-calculator.html
-Rectangular tank volume calculator.
-
-Turrets cannot exceed 15 tons overall
-
-Any Base less than the required volume is allowed 40 tons of armour and is considered a "turret" -see turret rules below
-
+BASIC COMBAT RULES
 _____________________________________________________________________________ 
 
-World Bases Rules
-
-1. Max weight for each doorway/window is 20 tons each
-2. Weapons cannot poke through walls. Must be pointed out of an open window/hole
-3. Turrets cannt exceed 10 tons
-4. 2 weapons allowed per base.
-5. Allowed weapons for World bases are
-
-20m Autocannon
-Grenade Launcher
-20mm HMG
-Any Machine Gun
-60mm Mortor
+1. This is a COMBAT and not a BUILD server. OUTSIDE of the safezone players are allowed to KILL you.
 
 
+2. Any GROUND vehicles must be powered by ACF and not E2/THRUSTERS or any sort of external power.
+*Excluding aircraft and hovercraft.
+
+3. Guns are not allowed to be INVISIBLE. Ammo however can be invisible as long as it is INSIDE the armor.
 
 
+4. ENTITY:setWeight(#) and ENTITY:propDelete() are NOT allowed in combat. 
+*We do not want ammo being removed before blowing or vehicles changing armor in the middle of combat.
+
+5. ACF entities are not allowed to clip inside of eachother.
+*Minor clipping is allowed for AMMO and ENGINES. 
+
+6. Sticking your guns INSIDE of another vehicle and shooting is NOT allowed.
+
+
+7. RADARS and or any kind of ESP are prohibited.
+
+
+8. Ammo and fuel MUST be contrained to your vehicle. That means NO setPos or applyForce on them.
+
+
+9. NO fleeing into safezone in combat.
+
+
+10. Refill boxes are NOT allowed outside of the SAFEZONE.
+*The may ONLY be used to refill your ammo INSIDE the safezone.
 _____________________________________________________________________________ 
 
-
-Plane Rules
-
-1.If useing an e2. Your plane must be fair speeds and agility. No 90 degree turns mid flight.
-2.Max weight is 15 tons. 10% deviation allowed.
-3.If your plane is not carrying projectile weapons and ONLY bombs from XCF. Then you may add an extra 7 tons of armour.
-4.If your Plane 10x10 Meters it is considered a "Mammoth Plane" and may weigh up to 30 tons.
-5.Eyeangles turrets or and equivilant cannot be controled by pilot. Only non pilot crew. 
-6. Pilot can only fire fixed weapons and bombs.
-
-
+INDEPENDENT BASE RULES
 _____________________________________________________________________________ 
 
+1. TOTAL weight may NOT exceed 1000 tonnes. NO exceptions.
 
-Vtol Rules
 
-1. Your Vtol must be reasonable. no setPos, just applyforce etc.
-2. Max weight for a Vtol is 25 tons as it is slower and easier to hit than a plane.
-3. No RAC 30mm
+2. Main walls may NOT exceed 30 tonnes.
 
+
+3. Maximum weight for doorways is 20 tonnes.
+
+
+4. Bases may have a MAXIMUM of 3 weapons.
+
+
+5. The allowed weapons are:
+
+- 20mm Autocannon
+- 37+50mm Cannon
+- Grenade launcher
+- 20+30mm Heavy Machine Gun
+- Any Machine Gun
+- 60mm Mortar
+- 75mm Howitzer
+
+6. Turrets CANNOT exceed 15 tonnes
 _____________________________________________________________________________ 
 
-Tank Rules
-
-1. Max Tank weight is 65y Tons
-2. Must be ACF powered
-
+WORLD BASE RULES
 _____________________________________________________________________________ 
 
-Mech Rules
+1. The MAXIMUM weight for ANY doorways is 20 tonnes.
 
-1. Max weight 65 Tons
-2. No setPos Weapon holders
 
+2. Weapons CANNOT stick through walls.
+*They must stick through holes realistically.
+
+3. Turrets may NOT exceed 10 tonnes.
+*Anything constrained to the weapons is considered part of the turret.
+
+4. A maximum of 3 weapons is allowed. No exceptions.
+
+
+5. Allowed weapons are just like independent bases:
+
+- 20mm Autocannon
+- 37+50mm Cannon
+- Grenade launcher
+- 20+30mm Heavy Machine Gun
+- Any Machine Gun
+- 60mm Mortar
+- 75mm Howitzer
 _____________________________________________________________________________ 
 
-Mammoth Plane rules
-
-1. Max weight 30 tons
-2. 10x10 meters
-
-3. Turrets cannot use weapons over 2 tons each. eg 2 57mm Semi AutoCannons are allowed 
-but not a 30mm RAC since its induvidual weight is over 2 tons
-
-4.Eyeangles turrets or and equivilant cannot be controled by pilot. Only non pilot crew. 
-5. Pilot can only fire fixed weapons and bombs.
-
+PLANE RULES
 _____________________________________________________________________________ 
 
-Mammoth Tank Rules
+1. ANY plane driven by E2 must act Realistically. This means no unfair speeds and turns. 
+*No 90 degree turns for planes. Sorry guys ;D
 
-1.Max weight of 95 tons.
-2. 10x7 meters
+2. Maximum weight for planes is 15 tonnes. 
+*20% deviation allowed.
 
+3. Planes carrying BOMBS or "NUKES" and NO guns are allowed 10 tonnes more weight.
+
+
+4. if your planes exceeds 10x10 meters it is considered a MAMMOTH plane.
+
+
+5. Eye aimed turrets can NOT be controlled by the pilot and ONLY by non pilot crew.
+
+
+6. Pilot can ONLY fire FIXED weapons and drop bombs.
 _____________________________________________________________________________ 
 
-Turret Rules
+MAMMOTH PLANE RULES
+_____________________________________________________________________________ 
 
-1. Max weight 60 tons
+1. Maximum weight for mammoth planes is 30 tonnes + 10% deviation.
 
+
+2. Must be more than 10x10 meters.
+
+
+3. Individual weapons may NOT weight more than 10 tonnes.
+*Not including bombs and missiles
+
+4. Eye aimed turrets can NOT be controlled by the pilot and ONLY by non pilot crew.
+_____________________________________________________________________________ 
+
+VTOL/COPTER RULES
+_____________________________________________________________________________ 
+
+1. Must behave realistically. That means NO setPos.
+
+
+2. Maximum weight is 25 tonnes + 10% deviation.
+_____________________________________________________________________________ 
+
+TANK RULES
+_____________________________________________________________________________ 
+
+1. ANY tank may NOT exceed 65 tonnes.
+
+
+2. MUST be acf powered. No external power source allowed as said before.
+_____________________________________________________________________________ 
+
+MECH RULES
+_____________________________________________________________________________ 
+
+1. Maximum weight of 65 Tonnes.
+
+
+2. NO setPos gimbals allowed.
+*That means NO holding weapons with setPos.
+_____________________________________________________________________________ 
+
+HOVERCRAFT RULES
+_____________________________________________________________________________ 
+
+1. Maximum weight of 10 tonnes.
+
+
+2. NO setPos gimbals allowed.
+*That means NO holding weapons with setPos.
+_____________________________________________________________________________ 
+
+TURRET RULES
+_____________________________________________________________________________ 
+
+1. Maximum weight for turrets is 60 tonnes. NO exceptions.
+_____________________________________________________________________________ 
+
+MISSILE/BOMB RULES
+_____________________________________________________________________________ 
+
+1. Missiles/bombs may not target and follow players on their own. 
+*That means NO heat seeking/target finding missiles and or bombs.
+
+2. Refill boxes are not prohibited on missiles and bombs.
+
+
+3. Missiles/bombs weight MUST compare to the explosion size realistically.
+
+
+4. Missiles/bombs MUST be constrained to the vehicle that is holding them.
+*That means no using setpos to hold them. Use latches instead.
 _____________________________________________________________________________ 
