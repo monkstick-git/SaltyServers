@@ -195,7 +195,7 @@ _____________________________________________________________________________
 7. Landmines must have atleast 50% alpha on the top.
 *Materials and colors can be used for camouflage
 
-8. Landmine must not clip into the ground more than 80%
+8. Landmines must not clip into the ground more than 80%
 
 
 9. Landmines cannot hold more than 1 layer of 50mm armor
