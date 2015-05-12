@@ -188,5 +188,15 @@ _____________________________________________________________________________
 
 5. Any Missile may NOT weight more that 5 tonnes + 10% deviation
 
+
 6. Maximum weight for bombs is 15 tonnes.
+
+
+7. Landmines must have atleast 50% alpha on the top.
+*Materials and colors can be used for camouflage
+
+8. Landmines must not clip into the ground more than 80%
+
+
+9. Landmines cannot hold more than 1 layer of 50mm armor
 _____________________________________________________________________________ 
