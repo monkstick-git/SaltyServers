@@ -35,6 +35,8 @@ _____________________________________________________________________________
 
 11. NO combat drones. Anything for combat must be manned.
 *Excluding spy and exploration drones.
+
+12. Any kind of armor must be constrained to your vehicle.
 _____________________________________________________________________________ 
 
 INDEPENDENT BASE RULES
