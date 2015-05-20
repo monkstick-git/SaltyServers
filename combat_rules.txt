@@ -37,6 +37,12 @@ _____________________________________________________________________________
 *Excluding spy and exploration drones.
 
 12. Any kind of armor must be constrained to your vehicle.
+
+
+13. Turrets or any kind of gun is NOT allowed to aim by itself. No autoaim.
+*Aim prediction is allowed aslong as the target is manually set with a point on the map.
+
+14. Any kind of cheating/hacking is not tolerated.
 _____________________________________________________________________________ 
 
 INDEPENDENT BASE RULES
@@ -114,19 +120,20 @@ _____________________________________________________________________________
 6. Pilot can ONLY fire FIXED weapons and drop bombs.
 _____________________________________________________________________________ 
 
-MAMMOTH PLANE RULES
+MAMMOTH PLANE/AIRSHIP RULES
 _____________________________________________________________________________ 
 
-1. Maximum weight for mammoth planes is 30 tonnes + 10% deviation.
+1. Maximum weight for mammoth planes and airships is 500 tonnes + 20% deviation.
 
 
-2. Must be more than 10x10 meters.
+2. Individual weapons may NOT weight more than 5 tonnes.
+*Excluding bombs and missiles
+
+3. Eye aimed turrets can NOT be controlled by the pilot and ONLY by non pilot crew.
 
 
-3. Individual weapons may NOT weight more than 10 tonnes.
-*Not including bombs and missiles
-
-4. Eye aimed turrets can NOT be controlled by the pilot and ONLY by non pilot crew.
+4. Speed must compensate with weight.
+*i.e. a 500 tonne airship cannot go 100 kph. You get my point. 
 _____________________________________________________________________________ 
 
 VTOL/COPTER RULES
@@ -138,10 +145,10 @@ _____________________________________________________________________________
 2. Maximum weight is 25 tonnes + 10% deviation.
 _____________________________________________________________________________ 
 
-TANK RULES
+GROUND VEHICLE RULES
 _____________________________________________________________________________ 
 
-1. ANY tank may NOT exceed 65 tonnes.
+1. ANY ground vehicle may NOT exceed 300 tonnes.
 
 
 2. MUST be acf powered. No external power source allowed as said before.
