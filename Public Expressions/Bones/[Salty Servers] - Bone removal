@@ -26,6 +26,8 @@ function void removeWheels()
     holoBoneScale(1,5,vec(0,0,0))
     holoBoneScale(1,8,vec(0,0,0))
     holoBoneScale(1,10,vec(0,0,0))
+    
+    holoParent(1,entity())
 }
 
 # Uncomment GetWheels if you need to figure out the new bone numbers of a new holo
