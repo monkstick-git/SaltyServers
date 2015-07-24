@@ -1,0 +1,47 @@
+@name [Salty] - Launcher
+@inputs Fire
+@outputs Ready E:entity
+@persist Ent:entity E:entity Ready Model:string
+@trigger
+@model models/props_phx/box_torpedo.mdl
+runOnTick(1)
+if(first() | dupefinished())
+{
+    E = entity()
+    Ready = 1
+    Model = "models/props_c17/oildrum001.mdl"    #change this model path to what you want the bombs to be
+}
+
+
+if(tickClk()){
+    
+
+if(changed(Fire) & Fire == 1 & Ready == 1)
+{
+    Ready = 0
+    Ent = propSpawn(Model,0)  
+    Ent:setPos(E:toWorld(vec()))
+    Ent:setAng(E:toWorld(ang(0,0,0)))
+    Ent:setTrails(70,0,1,"trails/smoke",vec(),255)
+    Ent:propNotSolid(1)
+    Ent:propFreeze(0)
+    Ent:setMass(500)
+    Ent:applyForce((E:forward() *Ent:mass()*1000*10)) 
+    E:soundPlay(1,0,"weapons/ambassador_shoot_crit.wav",3)
+    timer("ready",3000)
+    timer("solid",20)
+    timer("remove",3000)
+    }
+}
+
+    if(clk("ready"))
+    {
+        Ready = 1
+    }
+    if(clk("solid"))
+    {Ent:propNotSolid(0)}
+   if(clk("remove"))
+{Ent:propDelete()}
+    
+
+
